@@ -30,14 +30,13 @@ const ArtGallery = () => {
   }
   return (
     <div>
-      {artItems.slice(0, visibleItems).map((item) => (
+      {artItems.slice(0, visibleItems).map((item: { id: number, imageUrl: string, description: string }) => (
         <div key={item.id} className="flex flex-col">
           <img src={item.imageUrl} 
           alt={item.description} className="w-[600px]" />
           <p>{item.description}</p>
         </div>
       ))}
-
       {visibleItems <artItems.length && (
         <button className="bg-blue-300 text-white px-4 py-2 mt-4 
         rounded-sm" onClick={handleLoadMore}>
