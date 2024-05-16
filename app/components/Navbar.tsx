@@ -22,7 +22,7 @@ const Navbar = ({user}: Session) => {
   }, [openMobileMenu])
 
   return (
-    <nav className="w-full bg-black text-white">
+    <nav className="w-full bg-black text-white z-99">
       <div className="w-[89%]
        m-auto flex justify-between 
        items-center lg:max-w-[1500px]
@@ -43,7 +43,7 @@ const Navbar = ({user}: Session) => {
               >Gallery</Link>
             </li>
             <li>
-              <Link href={"/"}
+              <Link href={"/about"}
               >About</Link>
             </li>
             <li>
@@ -77,7 +77,7 @@ const Navbar = ({user}: Session) => {
         <div className="hidden md:flex gap-10 items-center"> 
           <Link href={"/"}>Home</Link>
           <Link href={"/gallery"}>Gallery</Link>
-          <Link href={"/"}>About</Link>
+          <Link href={"/about"}>About</Link>
           <Link href={"/"}>Contact</Link>
 
           {!user ? <div className="flex gap-5 items-center">
