@@ -25,7 +25,7 @@ export default async function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Hydrate>
-          <Navbar user={session?.user}/>
+          <Navbar user={session?.user} expires={""}/>
           {children}
         </Hydrate>
         </body>
