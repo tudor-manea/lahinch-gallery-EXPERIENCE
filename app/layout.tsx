@@ -5,7 +5,7 @@ import Navbar from "./components/Navbar";
 import Hydrate from "./components/Hydrate";
 import {getServerSession} from "next-auth/next"
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
-
+import Footer from "./components/Footer";
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -25,8 +25,10 @@ export default async function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Hydrate>
-          <Navbar user={session?.user} expires={""}/>
+          <Navbar user={session?.user} expires=
+          {session?.expires as string} />
           {children}
+          <Footer />
         </Hydrate>
         </body>
     </html>

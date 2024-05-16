@@ -5,17 +5,21 @@ import { Session } from "next-auth";
 
 const UploadForm = ({user}: {user: Session["user"]}) => {
   const [description, setDescription] = useState("")
-  const [image, setImage] = useState(null)
+  const [image, setImage] = useState<null | File> (null);
   
   const handleDescriptionChange = (e: 
     ChangeEvent<HTMLTextAreaElement>) => {
     setDescription(e.target.value);
   }
 
-  const handleImageChange = (event: 
+  const handleImageChange = (event: React.
     ChangeEvent<HTMLInputElement>) => {
-    setImage(event.target.files[0])
-  }
+      const selectedFile = event.target.files?.[0];
+      
+      if(selectedFile) {
+        setImage(selectedFile);
+      }
+  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
