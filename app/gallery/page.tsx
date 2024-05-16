@@ -9,8 +9,7 @@ const page = async () => {
     <div className="w-full">
       <div className="md:flex-row flex-col flex w-[89%] m-auto 
       justify-between py-5 gap-5 lg:max-w-[1500px]">
-        <UploadForm user={session?.user} expires=
-        {session?.expires as string} />
+        <UploadForm user={session?.user} />
         <ArtGallery />
       </div>
     </div>
@@ -18,4 +17,5 @@ const page = async () => {
 };
 
 export default page;
+
 
