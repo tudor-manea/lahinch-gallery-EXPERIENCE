@@ -12,6 +12,11 @@ const UploadForm = ({user}: {user: Session["user"]}) => {
     setDescription(e.target.value);
   }
 
+  const handleImageChange = (event: 
+    ChangeEvent<HTMLInputElement>) => {
+    setImage(event.target.files[0])
+  }
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     
@@ -46,9 +51,21 @@ const UploadForm = ({user}: {user: Session["user"]}) => {
         <form className="flex flex-col gap-10" 
         onSubmit={handleSubmit}>
           <textarea 
-          className="outline h-20 outline-blue-300"/>
+          className="outline h-20 outline-blue-300"
+          value={description}
+          onChange={handleDescriptionChange}
+          placeholder="Description"
+          maxLength={100}
+          style={{ resize: "none" }}
+          />
+          <input type="file" onChange={handleImageChange} 
+          name="image"/>
+          <button className="self-start bg-blue-300 px-3 
+          rounded-sm" type="submit">Upload</button>
         </form>
-      ) : null}
+      ) : <div>
+            <h2>Sign In to Upload</h2>
+          </div>}
     </>
   );
 };
