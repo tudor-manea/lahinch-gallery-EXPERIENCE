@@ -1,0 +1,22 @@
+{
+  "build": {
+    "env": {
+      "PRISMA_CLIENT_ENGINE_TYPE": "binary"
+    }
+  },
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/node",
+      "config": {
+        "includeFiles": ["prisma/schema.prisma"]
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/api"
+    }
+  ]
+}
