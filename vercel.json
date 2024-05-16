@@ -6,17 +6,9 @@
   },
   "builds": [
     {
-      "src": "package.json",
-      "use": "@vercel/node",
-      "config": {
-        "includeFiles": ["prisma/schema.prisma"]
-      }
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/api"
+      "src": "next.config.mjs",
+      "use": "@vercel/next"
     }
   ]
+}
 }
