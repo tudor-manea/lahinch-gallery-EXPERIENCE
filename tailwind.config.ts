@@ -13,8 +13,19 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      boxShadow: {
+        card: "0 4px 6px rgba(0, 0, 0, 0.2), 0 1px 3px rgba(0, 0, 0, 0.15)",
+        cardHover:
+          "0 10px 15px rgba(0, 0, 0, 0.35), 0 4px 6px rgba(0, 0, 0, 0.2)",
+      },
+    },
+  },
+  variants: {
+    extend: {
+      boxShadow: ['hover'],
     },
   },
   plugins: [],
 };
+
 export default config;

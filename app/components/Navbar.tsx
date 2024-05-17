@@ -44,7 +44,7 @@ const Navbar = ({ user }: Session) => {
               <Link href={"/"}>Home</Link>
             </li>
             <li>
-              <Link href={"/gallery"}>Gallery</Link>
+              <Link href={"/artists"}>Artists</Link>
             </li>
             <li>
               <Link href={"/about"}>About</Link>
@@ -91,7 +91,7 @@ const Navbar = ({ user }: Session) => {
         {/* DESKTOP MENU */}
         <div className="hidden md:flex gap-10 items-center">
           <Link href={"/"}>Home</Link>
-          <Link href={"/gallery"}>Gallery</Link>
+          <Link href={"/artists"}>Artists</Link>
           <Link href={"/about"}>About</Link>
           <Link href={"/contact"}>Contact</Link>
 
