@@ -11,7 +11,7 @@ const Hero = () => {
       justify-center lg:max-w-[1500px]"
       >
         <div className="lg:mb-0 mb-10">
-          <h1 className="text-7xl font-bold uppercase mb-3">
+          <h1 className="text-5xl lg:text-7xl font-bold uppercase mb-3">
             The <span className="text-blue-300">Gallery</span> Tour
           </h1>
           <div>
