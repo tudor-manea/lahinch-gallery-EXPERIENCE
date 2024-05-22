@@ -1,6 +1,7 @@
 import Image from "next/image";
 import artistsImage from "@/public/artists.jpg";
 import ArtistCard from "../components/ArtistCard"; // Adjust the import path as necessary
+import { artists } from "../data/artistsData";
 
 const Artists = () => {
   return (
@@ -33,10 +34,13 @@ const Artists = () => {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 p-4 gap-4 mb-8">
-        <ArtistCard imageSrc="/Liam-Jones.jpg" name="Liam Jones" />
-        <ArtistCard imageSrc="/Jennifer-Hart.jpg" name="Jennifer Hart" />
-        <ArtistCard imageSrc="/James-Brohan.jpg" name="James Brohan" />
-        <ArtistCard imageSrc="/Michael-Hanrahan.jpg" name="Michael Hanrahan" />
+        {artists.map((artist) => (
+          <ArtistCard
+            key={artist.name}
+            imageSrc={artist.imageSrc}
+            name={artist.name}
+          />
+        ))}
       </div>
     </div>
   );
