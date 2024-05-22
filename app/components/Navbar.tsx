@@ -35,7 +35,7 @@ const Navbar = ({ user }: Session) => {
 
         {/* MOBILE MENU */}
         <div
-          className={`md:gidden absolute top-16 w-full bg-blue-300 py-5 z-10 ${
+          className={`md:hidden absolute top-16 w-full bg-blue-300 py-5 z-10 ${
             openMobileMenu ? "left-0" : "left-[-100rem]"
           }`}
         >

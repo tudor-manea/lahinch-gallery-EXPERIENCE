@@ -33,7 +33,7 @@ const Artists = () => {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 p-4 gap-4 mb-8">
-        <ArtistCard imageSrc="/Liam-James.jpg" name="Liam James" />
+        <ArtistCard imageSrc="/Liam-Jones.jpg" name="Liam Jones" />
         <ArtistCard imageSrc="/Jennifer-Hart.jpg" name="Jennifer Hart" />
         <ArtistCard imageSrc="/James-Brohan.jpg" name="James Brohan" />
         <ArtistCard imageSrc="/Michael-Hanrahan.jpg" name="Michael Hanrahan" />
