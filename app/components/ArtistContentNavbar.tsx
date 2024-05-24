@@ -12,13 +12,21 @@ interface Artwork {
   title: string;
 }
 
+interface Video {
+  filePath: string;
+  title: string;
+}
+
 const ArtistContentNavbar = ({ artistName }: ArtistContentNavbarProps) => {
   const [activeTab, setActiveTab] = useState(tabs[0]);
   const [artworks, setArtworks] = useState<Artwork[]>([]);
+  const [videos, setVideos] = useState<Video[]>([]);
 
   useEffect(() => {
     if (activeTab === "Artworks") {
       fetchArtworks();
+    } else if (activeTab === "Videos") {
+      fetchVideos();
     }
   }, [activeTab]);
 
@@ -39,6 +47,23 @@ const ArtistContentNavbar = ({ artistName }: ArtistContentNavbarProps) => {
     }
   };
 
+  const fetchVideos = async () => {
+    try {
+      const response = await fetch(`/api/videos?artist=${artistName}`);
+      const data = await response.json();
+      const videosWithTitles = data.map((filePath: string) => {
+        const fileName = filePath.split('/').pop();
+        const title = fileName
+          ? fileName.replace(/[-_]/g, ' ').replace(/\.\w+$/, '')
+          : 'Untitled';
+        return { filePath, title };
+      });
+      setVideos(videosWithTitles);
+    } catch (error) {
+      console.error("Failed to fetch videos", error);
+    }
+  };
+
   return (
     <div className="mt-4 md:mt-8">
       <div className="flex justify-around md:justify-start md:gap-8 border-b">
@@ -53,7 +78,19 @@ const ArtistContentNavbar = ({ artistName }: ArtistContentNavbarProps) => {
         ))}
       </div>
       <div className="mt-8">
-        {activeTab === "Videos" && <div>Videos Content</div>}
+        {activeTab === "Videos" && (
+          <div className="flex flex-col gap-4">
+            {videos.map((video, index) => (
+              <div key={index} className="flex flex-col items-start">
+                <p className="mt-2 mb-4 text-left font-semibold text-lg">{video.title}</p>
+                <video controls className="w-full">
+                  <source src={video.filePath} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            ))}
+          </div>
+        )}
         {activeTab === "Q&A" && <div>Q&A Content</div>}
         {activeTab === "Artworks" && (
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
