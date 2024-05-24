@@ -53,12 +53,12 @@ const ArtistDetails = ({ artist }: ArtistDetailsProps) => {
                 <p className="mt-2 text-gray-700 text-justify text-sm">{artist.bio}</p>
               </div>
             )}
-            <ArtistContentNavbar />
+            <ArtistContentNavbar artistName={artist.name} />
           </div>
           <div className="hidden md:block mt-7">
             <h2 className="text-3xl font-bold mb-4 text-left">About</h2>
             <p className="text-gray-700 text-justify lg:text-2xl md:text-base mr-8">{artist.bio}</p>
-            <ArtistContentNavbar />
+            <ArtistContentNavbar artistName={artist.name} />
           </div>
         </div>
       </div>
