@@ -1,4 +1,7 @@
 {
-  "rewrites": [],
+  "rewrites": [
+    { "source": "/artists/:artist/artworks/:file", "destination": "/public/artists/:artist/artworks/:file" },
+    { "source": "/artists/:artist/videos/:file", "destination": "/public/artists/:artist/videos/:file" }
+  ],
   "public": true
 }
